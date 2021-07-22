@@ -1,1 +1,1 @@
-"# web-dev-course" 
+Repo for stuff made for my my Web dev course on [Udemy](https://www.udemy.com/course/the-web-developer-bootcamp/)
