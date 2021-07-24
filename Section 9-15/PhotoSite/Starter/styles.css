@@ -1,0 +1,18 @@
+body {
+  font-family: "Fjalla One", sans-serif;
+  margin: 0;
+}
+
+img {
+  width: 30%;
+  margin: calc(10% / 6);
+}
+
+nav {
+  text-decoration: uppercase;
+  border-bottom: 3px solid #f1f1f1f1;
+  font-size: 1.5em;
+  width: 96.6666%;
+  margin-left: calc(10% / 6);
+  padding: 1.2em 0;
+}
