@@ -1,0 +1,53 @@
+#left {
+  background-color: red;
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+  display: inline-block;
+}
+
+#middle {
+  background-color: green;
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+  display: inline-block;
+}
+
+#right {
+  background-color: blue;
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+  display: inline-block;
+}
+
+#static #middle {
+  position: static;
+  top: 50px;
+  left: 50px;
+}
+
+#relative #middle {
+  position: relative;
+  top: 50px;
+  left: 50px;
+}
+
+#absolute #middle {
+  position: absolute;
+  top: 20px;
+  left: 50px;
+}
+
+#fixed #middle {
+  position: fixed;
+  top: 20px;
+  left: 160px;
+}
+
+#sticky #middle {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 20px;
+}

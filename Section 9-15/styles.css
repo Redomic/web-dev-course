@@ -1,0 +1,11 @@
+body {
+  margin: 0px;
+}
+
+#divver {
+  margin: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border-radius: 2em;
+  padding: 1.2em;
+}
