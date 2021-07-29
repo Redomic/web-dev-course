@@ -1,0 +1,14 @@
+.block {
+  width: 80%;
+  height: 80%;
+}
+
+.pokeDiv {
+  border: 2px solid grey;
+  border-radius: 2em;
+  width: 100px;
+  height: 100px;
+  padding: 1em;
+  margin: 1em;
+  display: inline-block;
+}
