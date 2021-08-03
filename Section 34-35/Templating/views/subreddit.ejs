@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/head.ejs') %>
+  <body>
+    <h1>Browsing subreddit: <%= data.name %></h1>
+    <h2>Subscriber: <%= data.subscribers %></h2>
+    <h3><%= data.description %></h3>
+    <hr />
+
+    <% for (let post of data.posts) { %>
+    <article>
+      <h3><%= post.title %></h3>
+      <p><%= post.author %></p>
+      <% if (post.img) { %>
+      <img src="<%= post.img %>" />
+      <% } %>
+    </article>
+    <hr />
+    <% } %>
+  </body>
+</html>
