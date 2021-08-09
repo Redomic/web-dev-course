@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add new product</title>
+  </head>
+  <body>
+    <h1>Add a product</h1>
+    <form action="/products" method="POST">
+      <section>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" placeholder="Product Name" />
+      </section>
+      <section>
+        <label for="price">Price:</label>
+        <input type="number" name="price" id="price" placeholder="price" />
+      </section>
+      <section>
+        <label for="category">Category:</label>
+        <select name="category" id="category">
+          <% for (let category of categories) { %>
+          <option value="<%=category%>"><%=category%></option>
+          <% } %>
+        </select>
+      </section>
+      <button>Submit</button>
+    </form>
+
+    <a href="/products">Back to Products</a>
+  </body>
+</html>
