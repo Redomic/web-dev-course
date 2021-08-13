@@ -4,7 +4,7 @@
 <div class="row">
   <h1 class="text-center">Add new Campground</h1>
   <div class="col-6 offset-3">
-    <form action="/campgrounds" method="POST">
+    <form action="/campgrounds" method="POST" class="validated-form" novalidate>
       <div class="mb-3">
         <label for="title" class="form-label">Title</label>
         <input
@@ -13,6 +13,7 @@
           id="title"
           name="campground[title]"
           placeholder="Title"
+          required
         />
       </div>
       <div class="mb-3">
@@ -23,6 +24,7 @@
           id="location"
           name="campground[location]"
           placeholder="Location"
+          required
         />
       </div>
       <div class="mb-3">
@@ -35,6 +37,7 @@
           placeholder="Price"
           min="0"
           max="300"
+          required
         />
       </div>
       <div class="mb-3">
@@ -45,6 +48,7 @@
           rows="5"
           name="campground[description]"
           placeholder="Campground Description Here"
+          required
         ></textarea>
       </div>
       <div class="mb-3">
@@ -54,6 +58,7 @@
           type="text"
           id="image"
           name="campground[image]"
+          required
         />
       </div>
       <button class="btn btn-primary mt-3">Submit</button>
