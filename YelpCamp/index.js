@@ -5,11 +5,12 @@ const methodOverride = require('method-override');
 const path = require('path');
 
 const Campground = require('./models/campground');
+const Review = require('./models/review');
 
 const catchAsync = require('./utils/catchAsync');
 const ExpressError = require('./utils/ExpressError');
 
-const { campgroundSchema } = require('./schemas.js')
+const { campgroundSchema, reviewSchema } = require('./schemas.js')
 
 const app = express();
 
@@ -45,6 +46,16 @@ const validateCampground = (req, res, next) => {
     }
 }
 
+const validateReview = (req, res, next) => {
+    const { error } = reviewSchema.validate(req.body)
+    if (error) {
+        const msg = error.details.map(el => el.message).join(',')
+        throw new ExpressError(msg, 400);
+    } else {
+        next();
+    }
+}
+
 // Routes response
 app.get('/', (req, res) => {
     res.render('home.ejs')
@@ -56,7 +67,6 @@ app.get('/campgrounds',  catchAsync(async (req, res) => {
 }))
 
 app.post('/campgrounds', validateCampground, catchAsync(async (req, res, next) => {
-    
     const campground = new Campground(req.body.campground);
     await campground.save();
     res.redirect(`/campgrounds/${campground._id}`);
@@ -90,6 +100,16 @@ app.get('/campgrounds/:id/edit',  catchAsync(async (req, res) => {
     res.render('campgrounds/edit.ejs', { campground });
 }))
 
+app.post('/campgrounds/:id/review', validateReview, catchAsync(async (req, res) => {
+    const { id } = req.params;
+    const campground = await Campground.findById(id);
+    const review = new Review(req.body.review)
+    campground.reviews.push(review);
+    await review.save();
+    await campground.save();
+    res.redirect(`/campgrounds/${campground._id}`)
+}))
+
 app.all('*', (req, res, next) => {
     next(new ExpressError('Page not found', 404));
 })
@@ -100,7 +120,7 @@ app.use((err, req, res, nex) => {
     res.render('error.ejs', { err });
 })
 
-//Listener
+// Listener
 app.listen(3000, () => {
     console.log('Serving at port 3000')
 })
