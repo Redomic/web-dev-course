@@ -3,19 +3,8 @@
 <div class="row">
   <div class="col-4 offset-4">
     <div class="card p-4">
-      <h1 class="text-center">Register</h1>
-      <form action="/register" method="POST" class="validated-form" novalidate>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
-          <input
-            type="email"
-            class="form-control"
-            id="email"
-            name="email"
-            placeholder="email"
-            required
-          />
-        </div>
+      <h1 class="text-center">Login</h1>
+      <form action="/login" method="POST" class="validated-form" novalidate>
         <div class="mb-3">
           <label for="username" class="form-label">Username</label>
           <input
@@ -38,8 +27,8 @@
             required
           />
         </div>
-        <button class="btn btn-success mt-3">Register</button>
-        <a href="/login" class="btn btn-primary mt-3">Login</a>
+        <button class="btn btn-success mt-3">Login</button>
+        <a href="/register" class="btn btn-primary mt-3">Register</a>
       </form>
     </div>
   </div>
